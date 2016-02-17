@@ -9,10 +9,13 @@
 /* Begin PBXBuildFile section */
 		707872B61C747E58008995F6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 707872B51C747E58008995F6 /* main.m */; };
 		707872B91C747E58008995F6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 707872B81C747E58008995F6 /* AppDelegate.m */; };
-		707872BC1C747E58008995F6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 707872BB1C747E58008995F6 /* ViewController.m */; };
 		707872BF1C747E58008995F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 707872BD1C747E58008995F6 /* Main.storyboard */; };
 		707872C11C747E58008995F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 707872C01C747E58008995F6 /* Assets.xcassets */; };
 		707872C41C747E58008995F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 707872C21C747E58008995F6 /* LaunchScreen.storyboard */; };
+		707872D11C747FF3008995F6 /* CaluculatorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 707872D01C747FF3008995F6 /* CaluculatorController.m */; };
+		707872D41C748080008995F6 /* SettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 707872D31C748080008995F6 /* SettingController.m */; };
+		707872D71C748190008995F6 /* AppColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 707872D61C748190008995F6 /* AppColor.m */; };
+		707872DA1C7481A6008995F6 /* AppFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 707872D91C7481A6008995F6 /* AppFont.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +23,18 @@
 		707872B51C747E58008995F6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		707872B71C747E58008995F6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		707872B81C747E58008995F6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		707872BA1C747E58008995F6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		707872BB1C747E58008995F6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		707872BE1C747E58008995F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		707872C01C747E58008995F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		707872C31C747E58008995F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		707872C51C747E58008995F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		707872CF1C747FF3008995F6 /* CaluculatorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaluculatorController.h; sourceTree = "<group>"; };
+		707872D01C747FF3008995F6 /* CaluculatorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaluculatorController.m; sourceTree = "<group>"; };
+		707872D21C748080008995F6 /* SettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingController.h; sourceTree = "<group>"; };
+		707872D31C748080008995F6 /* SettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingController.m; sourceTree = "<group>"; };
+		707872D51C748190008995F6 /* AppColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppColor.h; sourceTree = "<group>"; };
+		707872D61C748190008995F6 /* AppColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppColor.m; sourceTree = "<group>"; };
+		707872D81C7481A6008995F6 /* AppFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppFont.h; sourceTree = "<group>"; };
+		707872D91C7481A6008995F6 /* AppFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppFont.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,10 +67,12 @@
 		707872B31C747E58008995F6 /* ListCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				707872CD1C747F8C008995F6 /* Model */,
+				707872CC1C747F6E008995F6 /* View */,
+				707872CB1C747F4B008995F6 /* Controller */,
+				707872CE1C747F9E008995F6 /* Misc */,
 				707872B71C747E58008995F6 /* AppDelegate.h */,
 				707872B81C747E58008995F6 /* AppDelegate.m */,
-				707872BA1C747E58008995F6 /* ViewController.h */,
-				707872BB1C747E58008995F6 /* ViewController.m */,
 				707872BD1C747E58008995F6 /* Main.storyboard */,
 				707872C01C747E58008995F6 /* Assets.xcassets */,
 				707872C21C747E58008995F6 /* LaunchScreen.storyboard */,
@@ -77,6 +88,42 @@
 				707872B51C747E58008995F6 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		707872CB1C747F4B008995F6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				707872CF1C747FF3008995F6 /* CaluculatorController.h */,
+				707872D01C747FF3008995F6 /* CaluculatorController.m */,
+				707872D21C748080008995F6 /* SettingController.h */,
+				707872D31C748080008995F6 /* SettingController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		707872CC1C747F6E008995F6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		707872CD1C747F8C008995F6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		707872CE1C747F9E008995F6 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				707872D51C748190008995F6 /* AppColor.h */,
+				707872D61C748190008995F6 /* AppColor.m */,
+				707872D81C7481A6008995F6 /* AppFont.h */,
+				707872D91C7481A6008995F6 /* AppFont.m */,
+			);
+			path = Misc;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,7 +196,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				707872BC1C747E58008995F6 /* ViewController.m in Sources */,
+				707872DA1C7481A6008995F6 /* AppFont.m in Sources */,
+				707872D41C748080008995F6 /* SettingController.m in Sources */,
+				707872D11C747FF3008995F6 /* CaluculatorController.m in Sources */,
+				707872D71C748190008995F6 /* AppColor.m in Sources */,
 				707872B91C747E58008995F6 /* AppDelegate.m in Sources */,
 				707872B61C747E58008995F6 /* main.m in Sources */,
 			);
