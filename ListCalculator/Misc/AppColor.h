@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppColor : UIObject
+@interface AppColor : NSObject
 
 @end
