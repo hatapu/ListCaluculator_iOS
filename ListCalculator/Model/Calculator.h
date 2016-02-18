@@ -1,5 +1,5 @@
 //
-//  NumberButton.h
+//  Calculator.h
 //  ListCalculator
 //
 //  Created by yusuke on 2016/02/18.
@@ -7,11 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-#import "CalculatorButton.h"
 
-@interface NumberButton : CalculatorButton
-
-@property (nonatomic)NSInteger number;
+@interface Calculator : NSObject
 
 @end

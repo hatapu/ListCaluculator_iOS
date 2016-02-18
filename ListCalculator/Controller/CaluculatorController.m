@@ -8,6 +8,7 @@
 
 #import "CaluculatorController.h"
 #import "NumberButton.h"
+#import "OperatorButton.h"
 #import "AppColor.h"
 
 @interface CaluculatorController ()
@@ -76,12 +77,13 @@
     
     y_val = calcHeight - btnHeight;
     [self setupNumberButtons:x_val y:y_val width:btnWidth height:btnHeight];
+    x_val = btnWidth * 3;
     [self setupOperatorButtons:x_val y:y_val width:btnWidth height:btnHeight];
 }
 
 - (void)setupNumberButtons:(CGFloat)x_val y:(CGFloat)y_val width:(CGFloat)btnWidth height:(CGFloat)btnHeight {
     for (NSInteger i = 0; i <= 9; i++) {
-        NumberButton *numBtn = [NumberButton buttonWithType:UIButtonTypeSystem];
+        NumberButton *numBtn = [NumberButton button];
         numBtn.frame = CGRectMake(x_val, y_val, btnWidth, btnHeight);
         numBtn.number = i;
         [_calcView addSubview:numBtn];
@@ -96,7 +98,13 @@
 }
 
 - (void)setupOperatorButtons:(CGFloat)x_val y:(CGFloat)y_val width:(CGFloat)btnWidth height:(CGFloat)btnHeight {
-    
+    for (NSInteger i = 0; i < 4; i++) {
+        OperatorButton *opBtn = [OperatorButton button];
+        opBtn.frame = CGRectMake(x_val, y_val, btnWidth, btnHeight);
+        opBtn.type = OperatorTypeAdd + i;
+        [_calcView addSubview:opBtn];
+        y_val -= btnHeight;
+    }
 }
 
 /*

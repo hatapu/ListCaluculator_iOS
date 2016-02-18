@@ -15,4 +15,9 @@
     return [UIFont systemFontOfSize:20.0];
 }
 
++ (UIFont *)operatorButtonFont
+{
+    return [UIFont systemFontOfSize:20.0];
+}
+
 @end

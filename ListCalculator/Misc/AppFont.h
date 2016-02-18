@@ -12,5 +12,6 @@
 @interface AppFont : NSObject
 
 + (UIFont *)numberButtonFont;
++ (UIFont *)operatorButtonFont;
 
 @end
