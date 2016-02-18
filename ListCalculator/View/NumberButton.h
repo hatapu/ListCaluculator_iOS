@@ -1,16 +1,16 @@
 //
-//  AppFont.h
+//  NumberButton.h
 //  ListCalculator
 //
-//  Created by yusuke on 2016/02/17.
+//  Created by yusuke on 2016/02/18.
 //  Copyright © 2016年 hatapu. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface AppFont : NSObject
+@interface NumberButton : UIButton
 
-+ (UIFont *)numberButtonFont;
+@property (nonatomic)NSInteger number;
 
 @end

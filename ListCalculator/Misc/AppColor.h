@@ -10,4 +10,6 @@
 
 @interface AppColor : NSObject
 
++ (UIColor *)calcViewBackground;
+
 @end

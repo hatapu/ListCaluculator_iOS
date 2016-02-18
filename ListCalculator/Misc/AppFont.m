@@ -10,4 +10,9 @@
 
 @implementation AppFont
 
++ (UIFont *)numberButtonFont
+{
+    return [UIFont systemFontOfSize:20.0];
+}
+
 @end

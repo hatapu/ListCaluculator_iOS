@@ -7,11 +7,15 @@
 //
 
 #import "CaluculatorController.h"
+#import "NumberButton.h"
+#import "AppColor.h"
 
 @interface CaluculatorController ()
 
 @property (nonatomic)CGFloat width;
 @property (nonatomic)CGFloat height;
+@property (nonatomic)UIView *calcView;
+@property (nonatomic)NSArray *numButtons;
 
 @end
 
@@ -33,6 +37,7 @@
 
 - (void)setupViews {
     [self initSettingButton];
+    [self initCalcView];
 }
 
 
@@ -54,6 +59,44 @@
 - (void)settingButtonPressed:(id)sender {
     NSLog(@"setting");
     [self performSegueWithIdentifier:@"toSetting" sender:self];
+}
+
+
+#pragma mark - Calc View
+
+- (void)initCalcView {
+    CGFloat btnHeight = 66;
+    CGFloat btnWidth = _width / 4;
+    CGFloat calcHeight = btnHeight * 5;
+    CGFloat x_val = 0;
+    CGFloat y_val = _height - calcHeight;
+    _calcView = [[UIView alloc] initWithFrame:CGRectMake(0, y_val, _width, calcHeight)];
+    _calcView.backgroundColor = [AppColor calcViewBackground];
+    [self.view addSubview:_calcView];
+    
+    y_val = calcHeight - btnHeight;
+    [self setupNumberButtons:x_val y:y_val width:btnWidth height:btnHeight];
+    [self setupOperatorButtons:x_val y:y_val width:btnWidth height:btnHeight];
+}
+
+- (void)setupNumberButtons:(CGFloat)x_val y:(CGFloat)y_val width:(CGFloat)btnWidth height:(CGFloat)btnHeight {
+    for (NSInteger i = 0; i <= 9; i++) {
+        NumberButton *numBtn = [NumberButton buttonWithType:UIButtonTypeSystem];
+        numBtn.frame = CGRectMake(x_val, y_val, btnWidth, btnHeight);
+        numBtn.number = i;
+        [_calcView addSubview:numBtn];
+        
+        if ((i == 0) || (i == 3) || (i == 6)) {
+            x_val = 0;
+            y_val -= btnHeight;
+        } else {
+            x_val += btnWidth;
+        }
+    }
+}
+
+- (void)setupOperatorButtons:(CGFloat)x_val y:(CGFloat)y_val width:(CGFloat)btnWidth height:(CGFloat)btnHeight {
+    
 }
 
 /*
