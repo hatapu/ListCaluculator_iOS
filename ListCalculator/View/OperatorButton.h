@@ -9,16 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "CalculatorButton.h"
 
-typedef NS_ENUM(NSInteger, OperatorType) {
-    OperatorTypeNone = 0,
-    OperatorTypeAdd,
-    OperatorTypeSub,
-    OperatorTypeMul,
-    OperatorTypeDiv
-};
-
 @interface OperatorButton : CalculatorButton
 
 @property (nonatomic) OperatorType type;
+
+- (NSString *)getOperatorStr;
 
 @end

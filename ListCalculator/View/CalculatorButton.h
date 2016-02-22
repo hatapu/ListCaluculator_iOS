@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Calculator.h"
 
 @interface CalculatorButton : UIButton
 

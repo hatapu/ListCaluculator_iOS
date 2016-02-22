@@ -8,6 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger, OperatorType) {
+    OperatorTypeNone = 0,
+    OperatorTypeAdd,
+    OperatorTypeSub,
+    OperatorTypeMul,
+    OperatorTypeDiv
+};
+
 @interface Calculator : NSObject
 
 @end
