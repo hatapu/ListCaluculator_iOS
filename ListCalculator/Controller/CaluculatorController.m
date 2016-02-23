@@ -10,11 +10,13 @@
 #import "NumberButton.h"
 #import "OperatorButton.h"
 #import "AppColor.h"
+#import "Calculator.h"
 
 @interface CaluculatorController ()
 
 @property (nonatomic)CGFloat width;
 @property (nonatomic)CGFloat height;
+@property (nonatomic)Calculator *calculator;
 @property (nonatomic)UIView *calcView;
 @property (nonatomic)NSMutableArray *buttons;
 
@@ -28,6 +30,7 @@
     _width = [UIScreen mainScreen].bounds.size.width;
     _height = [UIScreen mainScreen].bounds.size.height;
 
+    _calculator = [[Calculator alloc] init];
     [self setupViews];
 }
 
@@ -79,8 +82,14 @@
     y_val = calcHeight - btnHeight;
     [self setupNumberButtons:x_val y:y_val width:btnWidth height:btnHeight];
     x_val = btnWidth * 3;
+    y_val = calcHeight - 2 * btnHeight;
     [self setupOperatorButtons:x_val y:y_val width:btnWidth height:btnHeight];
+    y_val = calcHeight - btnHeight;
+    [self setupEqualButton:x_val y:y_val width:btnWidth height:btnHeight];
 }
+
+
+#pragma mark 数字ボタン
 
 - (void)setupNumberButtons:(CGFloat)x_val y:(CGFloat)y_val width:(CGFloat)btnWidth height:(CGFloat)btnHeight {
     for (NSInteger i = 0; i <= 9; i++) {
@@ -101,8 +110,10 @@
 }
 
 - (void)numButtonPressed:(NumberButton *)sender {
-    NSLog([NSString stringWithFormat:@"%ld", sender.number]);
+    [_calculator inputNumber:sender.number];
 }
+
+#pragma mark 演算子ボタン
 
 - (void)setupOperatorButtons:(CGFloat)x_val y:(CGFloat)y_val width:(CGFloat)btnWidth height:(CGFloat)btnHeight {
     for (NSInteger i = 0; i < 4; i++) {
@@ -117,8 +128,24 @@
 }
 
 - (void)opButtonPressed:(OperatorButton *)sender {
-    NSLog([sender getOperatorStr]);
+    [_calculator inputOperator:sender.type];
 }
+
+#pragma mark =ボタン
+
+- (void)setupEqualButton:(CGFloat)x_val y:(CGFloat)y_val width:(CGFloat)btnWidth height:(CGFloat)btnHeight {
+    CalculatorButton *equalBtn = [CalculatorButton button];
+    equalBtn.frame = CGRectMake(x_val, y_val, btnWidth, btnHeight);
+    [equalBtn addTarget:self action:@selector(equalButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    equalBtn.seal = @"=";
+    [_calcView addSubview:equalBtn];
+    [_buttons addObject:equalBtn];
+}
+
+- (void)equalButtonPressed:(CalculatorButton *)sender {
+    [_calculator inputEqual];
+}
+
 
 /*
 #pragma mark - Navigation

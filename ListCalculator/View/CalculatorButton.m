@@ -7,6 +7,7 @@
 //
 
 #import "CalculatorButton.h"
+#import "AppFont.h"
 
 @implementation CalculatorButton
 
@@ -14,6 +15,10 @@
     return [self buttonWithType:UIButtonTypeSystem];
 }
 
+- (void)setSeal:(NSString *)seal {
+    [self setTitle:seal forState:UIControlStateNormal];
+    [self.titleLabel setFont:[AppFont numberButtonFont]];
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.

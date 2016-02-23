@@ -16,6 +16,17 @@ typedef NS_ENUM(NSInteger, OperatorType) {
     OperatorTypeDiv
 };
 
+typedef NS_ENUM(NSInteger, CalculatorState) {
+    CalculatorStateLeftInput = 0,
+    CalculatorStateRightInput,
+    CalculatorStateResult
+};
+
 @interface Calculator : NSObject
+
+
+- (void)inputNumber:(NSInteger)num;
+- (void)inputOperator:(OperatorType)op;
+- (void)inputEqual;
 
 @end

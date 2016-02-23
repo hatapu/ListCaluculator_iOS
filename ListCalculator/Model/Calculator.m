@@ -12,7 +12,9 @@
 
 @property (nonatomic)NSMutableString *leftOperand;
 @property (nonatomic)NSMutableString *rightOperand;
+@property (nonatomic)NSString *result;
 @property (nonatomic)OperatorType operator;
+@property (nonatomic)CalculatorState state;
 
 @end
 
@@ -24,6 +26,7 @@
         _leftOperand = [NSMutableString string];
         _rightOperand = [NSMutableString string];
         _operator = OperatorTypeNone;
+        _state = CalculatorStateLeftInput;
     }
     return self;
 }
@@ -41,10 +44,16 @@
     _operator = op;
 }
 
+- (void)inputEqual {
+    NSDecimalNumber *dec = [self execCalcDec];
+    _result = dec.stringValue;
+}
+
 
 #pragma mark - 文字列操作
 
 /**
+ * 関数電卓用？
  * 文字列から数値へ変換
  * 正しい数値にならない文字列だったらnilを返す
  */
@@ -85,18 +94,25 @@
 - (NSDecimalNumber *)execCalcDec {
     NSDecimalNumber *left = [self stringToDec:_leftOperand];
     NSDecimalNumber *right = [self stringToDec:_rightOperand];
+    NSDecimalNumber *ret;
     switch (_operator) {
         case OperatorTypeAdd:
-            return [left decimalNumberByAdding:right];
+            ret = [left decimalNumberByAdding:right];
+            break;
         case OperatorTypeSub:
-            return [left decimalNumberBySubtracting:right];
+            ret = [left decimalNumberBySubtracting:right];
+            break;
         case OperatorTypeMul:
-            return [left decimalNumberByMultiplyingBy:right];
+            ret = [left decimalNumberByMultiplyingBy:right];
+            break;
         case OperatorTypeDiv:
-            return [left decimalNumberByDividingBy:right];
+            ret = [left decimalNumberByDividingBy:right];
+            break;
         default:
-            return nil;
+            ret = nil;
+            break;
     }
+    return ret;
 }
 
 

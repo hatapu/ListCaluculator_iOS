@@ -11,6 +11,8 @@
 
 @interface CalculatorButton : UIButton
 
+@property (nonatomic)NSString *seal;
+
 + (id)button;
 
 @end
