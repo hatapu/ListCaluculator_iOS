@@ -10,6 +10,9 @@
 
 @interface AppColor : NSObject
 
++ (UIColor *)calcButtonColor;
 + (UIColor *)calcViewBackground;
++ (UIColor *)resultViewBackground;
++ (UIColor *)resultLabelColor;
 
 @end

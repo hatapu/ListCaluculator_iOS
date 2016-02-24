@@ -19,6 +19,8 @@
 @property (nonatomic)Calculator *calculator;
 @property (nonatomic)UIView *calcView;
 @property (nonatomic)NSMutableArray *buttons;
+@property (nonatomic)UIView *resultView;
+@property (nonatomic)UILabel *resultLabel;
 
 @end
 
@@ -42,6 +44,7 @@
 - (void)setupViews {
     [self initSettingButton];
     [self initCalcView];
+    [self initResultView];
 }
 
 
@@ -111,6 +114,7 @@
 
 - (void)numButtonPressed:(NumberButton *)sender {
     [_calculator inputNumber:sender.number];
+    _resultLabel.text = [_calculator getCalcString];
 }
 
 #pragma mark 演算子ボタン
@@ -129,6 +133,7 @@
 
 - (void)opButtonPressed:(OperatorButton *)sender {
     [_calculator inputOperator:sender.type];
+    _resultLabel.text = [_calculator getCalcString];
 }
 
 #pragma mark =ボタン
@@ -144,8 +149,26 @@
 
 - (void)equalButtonPressed:(CalculatorButton *)sender {
     [_calculator inputEqual];
+    _resultLabel.text = [_calculator getResultString];
 }
 
+
+#pragma mark - 計算表示
+
+- (void)initResultView {
+    CGFloat height = 66;
+    CGFloat y_val = _calcView.frame.origin.y - height;
+    _resultView = [[UIView alloc] initWithFrame:CGRectMake(0, y_val, _width, height)];
+    _resultView.backgroundColor = [AppColor resultViewBackground];
+    [self.view addSubview:_resultView];
+    
+    CGFloat padding_x = 10;
+    _resultLabel = [[UILabel alloc] initWithFrame:CGRectMake(padding_x, 0, _width - 2 * padding_x, height)];
+    _resultLabel.text = @"0";
+    _resultLabel.textColor = [AppColor resultLabelColor];
+    _resultLabel.textAlignment = NSTextAlignmentRight;
+    [_resultView addSubview:_resultLabel];
+}
 
 /*
 #pragma mark - Navigation

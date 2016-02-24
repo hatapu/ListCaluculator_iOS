@@ -28,5 +28,7 @@ typedef NS_ENUM(NSInteger, CalculatorState) {
 - (void)inputNumber:(NSInteger)num;
 - (void)inputOperator:(OperatorType)op;
 - (void)inputEqual;
+- (NSString *)getCalcString;
+- (NSString *)getResultString;
 
 @end

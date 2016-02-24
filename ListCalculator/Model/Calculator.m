@@ -115,6 +115,43 @@
     return ret;
 }
 
+#pragma mark - 表示
+
+- (NSString *)getCalcString {
+    NSString *retString;
+    switch (_operator) {
+        case OperatorTypeAdd:
+        case OperatorTypeSub:
+        case OperatorTypeMul:
+        case OperatorTypeDiv:
+            retString = [[_leftOperand stringByAppendingString:[self getOperatorSeal:_operator]] stringByAppendingString:_rightOperand];
+            break;
+        default:
+            retString = _leftOperand;
+            break;
+    }
+    return retString;
+}
+
+- (NSString *)getResultString {
+    return _result;
+}
+
+- (NSString *)getOperatorSeal:(OperatorType)type {
+    switch (type) {
+        case OperatorTypeAdd:
+            return @"+";
+        case OperatorTypeSub:
+            return @"−";
+        case OperatorTypeMul:
+            return @"×";
+        case OperatorTypeDiv:
+            return @"÷";
+        default:
+            return @"error";
+    }
+}
+
 
 #pragma mark - Validation
 

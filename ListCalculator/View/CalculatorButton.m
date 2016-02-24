@@ -8,16 +8,23 @@
 
 #import "CalculatorButton.h"
 #import "AppFont.h"
+#import "AppColor.h"
 
 @implementation CalculatorButton
 
 + (id)button {
-    return [self buttonWithType:UIButtonTypeSystem];
+    CalculatorButton *instance = [self buttonWithType:UIButtonTypeSystem];
+    [instance setDefaultColor];
+    return instance;
 }
 
 - (void)setSeal:(NSString *)seal {
     [self setTitle:seal forState:UIControlStateNormal];
     [self.titleLabel setFont:[AppFont numberButtonFont]];
+}
+
+- (void)setDefaultColor {
+    [self setTitleColor:[AppColor calcButtonColor] forState:UIControlStateNormal];
 }
 
 /*
