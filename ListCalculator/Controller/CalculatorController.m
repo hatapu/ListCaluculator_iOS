@@ -1,18 +1,18 @@
 //
-//  CaluculatorController.m
+//  CalculatorController.m
 //  ListCalculator
 //
 //  Created by yusuke on 2016/02/17.
 //  Copyright © 2016年 hatapu. All rights reserved.
 //
 
-#import "CaluculatorController.h"
+#import "CalculatorController.h"
 #import "NumberButton.h"
 #import "OperatorButton.h"
 #import "AppColor.h"
 #import "Calculator.h"
 
-@interface CaluculatorController ()
+@interface CalculatorController ()
 
 @property (nonatomic)CGFloat width;
 @property (nonatomic)CGFloat height;
@@ -22,7 +22,7 @@
 
 @end
 
-@implementation CaluculatorController
+@implementation CalculatorController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

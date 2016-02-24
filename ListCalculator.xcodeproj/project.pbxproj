@@ -12,7 +12,7 @@
 		707872BF1C747E58008995F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 707872BD1C747E58008995F6 /* Main.storyboard */; };
 		707872C11C747E58008995F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 707872C01C747E58008995F6 /* Assets.xcassets */; };
 		707872C41C747E58008995F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 707872C21C747E58008995F6 /* LaunchScreen.storyboard */; };
-		707872D11C747FF3008995F6 /* CaluculatorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 707872D01C747FF3008995F6 /* CaluculatorController.m */; };
+		707872D11C747FF3008995F6 /* CalculatorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 707872D01C747FF3008995F6 /* CalculatorController.m */; };
 		707872D41C748080008995F6 /* SettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 707872D31C748080008995F6 /* SettingController.m */; };
 		707872D71C748190008995F6 /* AppColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 707872D61C748190008995F6 /* AppColor.m */; };
 		707872DA1C7481A6008995F6 /* AppFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 707872D91C7481A6008995F6 /* AppFont.m */; };
@@ -31,8 +31,8 @@
 		707872C01C747E58008995F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		707872C31C747E58008995F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		707872C51C747E58008995F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		707872CF1C747FF3008995F6 /* CaluculatorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaluculatorController.h; sourceTree = "<group>"; };
-		707872D01C747FF3008995F6 /* CaluculatorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaluculatorController.m; sourceTree = "<group>"; };
+		707872CF1C747FF3008995F6 /* CalculatorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorController.h; sourceTree = "<group>"; };
+		707872D01C747FF3008995F6 /* CalculatorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorController.m; sourceTree = "<group>"; };
 		707872D21C748080008995F6 /* SettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingController.h; sourceTree = "<group>"; };
 		707872D31C748080008995F6 /* SettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingController.m; sourceTree = "<group>"; };
 		707872D51C748190008995F6 /* AppColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppColor.h; sourceTree = "<group>"; };
@@ -105,8 +105,8 @@
 		707872CB1C747F4B008995F6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				707872CF1C747FF3008995F6 /* CaluculatorController.h */,
-				707872D01C747FF3008995F6 /* CaluculatorController.m */,
+				707872CF1C747FF3008995F6 /* CalculatorController.h */,
+				707872D01C747FF3008995F6 /* CalculatorController.m */,
 				707872D21C748080008995F6 /* SettingController.h */,
 				707872D31C748080008995F6 /* SettingController.m */,
 			);
@@ -221,7 +221,7 @@
 				707872E01C75CF2F008995F6 /* Calculator.m in Sources */,
 				707872D41C748080008995F6 /* SettingController.m in Sources */,
 				707872E31C75CFB8008995F6 /* OperatorButton.m in Sources */,
-				707872D11C747FF3008995F6 /* CaluculatorController.m in Sources */,
+				707872D11C747FF3008995F6 /* CalculatorController.m in Sources */,
 				707872D71C748190008995F6 /* AppColor.m in Sources */,
 				707872DD1C752D61008995F6 /* NumberButton.m in Sources */,
 				707872B91C747E58008995F6 /* AppDelegate.m in Sources */,

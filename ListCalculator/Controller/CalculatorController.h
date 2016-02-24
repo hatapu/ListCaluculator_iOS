@@ -1,5 +1,5 @@
 //
-//  CaluculatorController.h
+//  CalculatorController.h
 //  ListCalculator
 //
 //  Created by yusuke on 2016/02/17.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CaluculatorController : UIViewController
+@interface CalculatorController : UIViewController
 
 @end
