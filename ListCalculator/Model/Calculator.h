@@ -13,7 +13,8 @@ typedef NS_ENUM(NSInteger, OperatorType) {
     OperatorTypeAdd,
     OperatorTypeSub,
     OperatorTypeMul,
-    OperatorTypeDiv
+    OperatorTypeDiv,
+    OperatorTypeEqual
 };
 
 typedef NS_ENUM(NSInteger, CalculatorState) {

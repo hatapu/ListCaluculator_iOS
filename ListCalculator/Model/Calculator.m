@@ -23,17 +23,24 @@
 - (id)init {
     self = [super init];
     if (self) {
-        _leftOperand = [NSMutableString string];
-        _rightOperand = [NSMutableString string];
-        _operator = OperatorTypeNone;
-        _state = CalculatorStateLeftInput;
+        [self reset];
     }
     return self;
 }
 
+- (void)reset {
+    _state = CalculatorStateLeftInput;
+    _operator = OperatorTypeNone;
+    _leftOperand = [NSMutableString string];
+    _rightOperand = [NSMutableString string];
+    _result = nil;
+}
 
 - (void)inputNumber:(NSInteger)num {
-    if (_operator == OperatorTypeNone) {
+    if (_state == CalculatorStateResult) {
+        [self reset];
+    }
+    if (_state == CalculatorStateLeftInput) {
         [_leftOperand appendString:[NSString stringWithFormat:@"%ld", (long)num]];
     } else {
         [_rightOperand appendString:[NSString stringWithFormat:@"%ld", (long)num]];
@@ -42,11 +49,23 @@
 
 - (void)inputOperator:(OperatorType)op {
     _operator = op;
+    if (_state == CalculatorStateResult) {
+        _leftOperand = [_result mutableCopy];
+        _rightOperand = [NSMutableString string];
+    } else if(_state == CalculatorStateRightInput) {
+        [self inputEqual];
+        [self inputOperator:op];
+    }
+    _state = CalculatorStateRightInput;
 }
 
 - (void)inputEqual {
+    if (_state == CalculatorStateResult) {
+        _leftOperand = [_result mutableCopy];
+    }
     NSDecimalNumber *dec = [self execCalcDec];
     _result = dec.stringValue;
+    _state = CalculatorStateResult;
 }
 
 
@@ -100,6 +119,7 @@
             ret = [left decimalNumberByAdding:right];
             break;
         case OperatorTypeSub:
+            // ToDo: 計算があやしい
             ret = [left decimalNumberBySubtracting:right];
             break;
         case OperatorTypeMul:
