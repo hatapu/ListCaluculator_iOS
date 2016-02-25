@@ -48,6 +48,12 @@
 }
 
 - (void)inputOperator:(OperatorType)op {
+    // 演算子ではなくマイナスとして扱う
+    if ((op == OperatorTypeSub) && [self isOpMinus]) {
+        [self inputMinus];
+        return;
+    }
+    
     _operator = op;
     if (_state == CalculatorStateResult) {
         _leftOperand = [_result mutableCopy];
@@ -66,6 +72,28 @@
     NSDecimalNumber *dec = [self execCalcDec];
     _result = dec.stringValue;
     _state = CalculatorStateResult;
+}
+
+// -を引くではなくマイナスにする条件
+- (BOOL)isOpMinus {
+    if (((_state == CalculatorStateLeftInput) && (_leftOperand.length == 0)) ||
+        ((_state == CalculatorStateRightInput) && (_rightOperand.length == 0))) {
+        return YES;
+    }
+    return NO;
+}
+
+- (void)inputMinus {
+    switch (_state) {
+        case CalculatorStateLeftInput:
+            [_leftOperand appendString:@"-"];
+            break;
+        case CalculatorStateRightInput:
+            [_rightOperand appendString:@"-"];
+            break;
+        default:
+            break;
+    }
 }
 
 
@@ -176,8 +204,8 @@
 #pragma mark - Validation
 
 - (BOOL)isOperandStringValid:(NSString *)operand {
-    // 0~1と.だけであることの確認
-    NSCharacterSet *numDotCharacters = [NSCharacterSet characterSetWithCharactersInString:@"0123456789."];
+    // 0~1と.-だけであることの確認
+    NSCharacterSet *numDotCharacters = [NSCharacterSet characterSetWithCharactersInString:@"0123456789.-"];
     NSScanner *aScanner = [NSScanner localizedScannerWithString:operand];
     [aScanner setCharactersToBeSkipped:nil];
     [aScanner scanCharactersFromSet:numDotCharacters intoString:NULL];
