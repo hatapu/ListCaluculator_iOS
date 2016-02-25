@@ -17,16 +17,15 @@
 
 - (void)setType:(OperatorType)type {
     _type = type;
-    [self setTitle:[self getOperatorStr] forState:UIControlStateNormal];
-    [self.titleLabel setFont:[AppFont numberButtonFont]];
+    self.seal = [self getOperatorStr];
 }
 
 - (NSString *)getOperatorStr {
     switch (_type) {
         case OperatorTypeAdd:
-            return @"＋";
+            return @"+";
         case OperatorTypeSub:
-            return @"−";
+            return @"-";
         case OperatorTypeMul:
             return @"×";
         case OperatorTypeDiv:

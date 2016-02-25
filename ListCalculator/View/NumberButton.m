@@ -17,9 +17,7 @@
 
 - (void)setNumber:(NSInteger)number {
     _number = number;
-    NSString *seal = [NSString stringWithFormat:@"%d", _number];
-    [self setTitle:seal forState:UIControlStateNormal];
-    [self.titleLabel setFont:[AppFont numberButtonFont]];
+    self.seal = [NSString stringWithFormat:@"%d", _number];
 }
 
 

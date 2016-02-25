@@ -9,6 +9,7 @@
 #import "CalculatorController.h"
 #import "NumberButton.h"
 #import "OperatorButton.h"
+#import "DotButton.h"
 #import "AppColor.h"
 #import "Calculator.h"
 
@@ -89,6 +90,8 @@
     [self setupOperatorButtons:x_val y:y_val width:btnWidth height:btnHeight];
     y_val = calcHeight - btnHeight;
     [self setupEqualButton:x_val y:y_val width:btnWidth height:btnHeight];
+    x_val = btnWidth * 2;
+    [self setupDotButton:x_val y:y_val width:btnWidth height:btnHeight];
 }
 
 
@@ -116,6 +119,21 @@
     [_calculator inputNumber:sender.number];
     _resultLabel.text = [_calculator getCalcString];
 }
+
+#pragma mark 小数点ボタン
+
+- (void)setupDotButton:(CGFloat)x_val y:(CGFloat)y_val width:(CGFloat)btnWidth height:(CGFloat)btnHeight {
+    DotButton *dotBtn = [DotButton button];
+    dotBtn.frame = CGRectMake(x_val, y_val, btnWidth, btnHeight);
+    [dotBtn addTarget:self action:@selector(dotButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [_calcView addSubview:dotBtn];
+    [_buttons addObject:dotBtn];
+}
+
+- (void)dotButtonPressed:(DotButton *)sender {
+
+}
+
 
 #pragma mark 演算子ボタン
 
